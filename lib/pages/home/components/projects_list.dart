@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfilio/ScrollOnWeb.dart';
 import 'package:my_portfilio/models/fake_data/data_project.dart';
+import 'package:my_portfilio/pages/details/project_detail.dart';
 import 'package:my_portfilio/pages/home/components/label.dart';
 import 'package:my_portfilio/pages/home/components/project_card.dart';
 
@@ -29,13 +30,23 @@ class Projects extends StatelessWidget {
               itemBuilder: (context, index) {
                 return ProjectCard(
                     projects: projects[index],
-                    press: () => showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: Text("You clicked ${projects[index].name}"),
-                          );
-                        }));
+                    press: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ProjectDetail(
+                                    projects: projects[index],
+                                    press: () => Navigator.pop(context),
+                                  )));
+                    }
+                    // showDialog(
+                    //     context: context,
+                    //     builder: (context) {
+                    //       return AlertDialog(
+                    //         title: Text("You clicked ${projects[index].name}"),
+                    //       );
+                    //     })
+                    );
               },
             ),
           ),
