@@ -4,9 +4,10 @@ class Header extends StatelessWidget {
   const Header({
     Key? key,
     required this.username,
+    required this.avatar,
   }) : super(key: key);
 
-  final String username;
+  final String username, avatar;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -34,11 +35,7 @@ class Header extends StatelessWidget {
             ),
           ],
         ),
-        const Icon(
-          Icons.account_circle,
-          color: Colors.black,
-          size: 30,
-        )
+        Image.asset(avatar, height: 45),
       ],
     );
   }
