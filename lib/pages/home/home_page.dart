@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfilio/pages/home/components/header.dart';
-import 'package:my_portfilio/pages/home/components/label.dart';
-import 'package:my_portfilio/pages/widgets/Cards/intro_card.dart';
-import 'package:my_portfilio/pages/widgets/Cards/project_card.dart';
+import 'package:my_portfilio/pages/home/components/projects_list.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -10,6 +8,16 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color.fromARGB(255, 44, 44, 44),
+        onPressed: () {
+          print("pressed Share button!");
+        },
+        child: const Icon(
+          Icons.share,
+          color: Colors.white,
+        ),
+      ),
       body: SafeArea(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
@@ -20,54 +28,14 @@ class MyHomePage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: const [
                   //header
                   Header(
                     username: "Danilz",
+                    avatar: "assets/images/avataaars.png",
                   ),
                   SizedBox(height: 25),
-                  Label(
-                    label: "Projects",
-                  ),
-                  SizedBox(height: 10),
-
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height,
-                    child: ListView(children: const [
-                      ProjectCard(
-                        name: "My Project",
-                        year: "2022",
-                        img:
-                            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-                        info:
-                            """Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime sint commodi repudiandea consequuntur voluptatum laborum""",
-                      ),
-                      ProjectCard(
-                        name: "My Project",
-                        year: "2022",
-                        img:
-                            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-                        info:
-                            """Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime sint commodi repudiandea consequuntur voluptatum laborum""",
-                      ),
-                      ProjectCard(
-                        name: "My Project",
-                        year: "2022",
-                        img:
-                            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-                        info:
-                            """Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime sint commodi repudiandea consequuntur voluptatum laborum""",
-                      ),
-                      ProjectCard(
-                        name: "My Project",
-                        year: "2022",
-                        img:
-                            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-                        info:
-                            """Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime sint commodi repudiandea consequuntur voluptatum laborum""",
-                      ),
-                    ]),
-                  ),
+                  Projects(),
                   // Row(
                   //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   //   children: const [
