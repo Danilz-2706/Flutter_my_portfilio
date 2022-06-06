@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfilio/pages/home/components/header.dart';
 import 'package:my_portfilio/pages/home/components/projects_list.dart';
+import 'package:share_plus/share_plus.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class MyHomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color.fromARGB(255, 44, 44, 44),
         onPressed: () {
-          print("pressed Share button!");
+          Share.share("Do you want to share this page ?");
         },
         child: const Icon(
           Icons.share,

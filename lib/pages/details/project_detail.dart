@@ -5,6 +5,7 @@ import 'package:my_portfilio/models/project.dart';
 import 'package:my_portfilio/pages/details/components/header_detail_project.dart';
 import 'package:my_portfilio/pages/details/components/horizontal_tech_view.dart';
 import 'package:my_portfilio/pages/home/components/label.dart';
+import 'package:my_portfilio/responsive/responsive.dart';
 
 class ProjectDetail extends StatelessWidget {
   const ProjectDetail({
@@ -47,9 +48,22 @@ class ProjectDetail extends StatelessWidget {
                         tag: projects.name,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(15.0),
-                          child: Image.network(
-                            projects.img,
-                            fit: BoxFit.cover,
+                          child: Responsive(
+                            mobile: Image.network(
+                              projects.img,
+                              fit: BoxFit.cover,
+                            ),
+                            tablet: Image.network(
+                              projects.img,
+                              fit: BoxFit.cover,
+                            ),
+                            desktop: SizedBox(
+                              height: 350,
+                              child: Image.network(
+                                projects.img,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
                         ),
                       ),
